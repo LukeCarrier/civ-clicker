@@ -18,5 +18,8 @@
   "homepage": "https://github.com/LukeCarrier/civ-clicker",
   "devDependencies": {
     "bower": "^1.4.1"
+  },
+  "scripts": {
+    "postinstall": "bower install"
   }
 }
