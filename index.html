@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <title>CivClicker</title>
+
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
+        <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.css">
+        <link rel="stylesheet" href="style.css">
+
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="script.js"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button class="navbar-toggle collapsed" aria-controls="navbar" aria-expanded="false" data-target="#navbar" data-toggle="collapse" type="button">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a href="#" class="navbar-brand">
+                        CivClicker
+                    </a>
+                </div>
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="container civclicker-body" role="main">
+            <div class="page-header">
+                <h1>Overview</h1>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Citizens</div>
+                        <div class="panel-body table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Property</th>
+                                        <th>Total</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Population</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Employed</td>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Sick</td>
+                                        <td></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Resources</div>
+                        <div class="panel-body table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Resource</th>
+                                        <th>Total</th>
+                                        <th>Gather</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Food</td>
+                                        <td data-civclicker-property="resource-food"></td>
+                                        <td>
+                                            <a href="#" data-civclicker-action="gather" data-civclicker-resource="food" class="btn btn-success">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                <span class="sr-only">Gather</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Water</td>
+                                        <td data-civclicker-property="resource-water"></td>
+                                        <td>
+                                            <a href="#" data-civclicker-action="gather" data-civclicker-resource="water" class="btn btn-success">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                <span class="sr-only">Gather</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wood</td>
+                                        <td data-civclicker-property="resource-wood"></td>
+                                        <td>
+                                            <a data-civclicker-action="gather" data-civclicker-resource="wood" href="#" class="btn btn-success">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                <span class="sr-only">Gather</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stone</td>
+                                        <td data-civclicker-property="resource-stone"></td>
+                                        <td>
+                                            <a href="#" data-civclicker-action="gather" data-civclicker-resource="stone" class="btn btn-success">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                <span class="sr-only">Gather</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">Housing</div>
+                        <div class="panel-body table-responsive">
+                            <table class="table table-hover table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Type</th>
+                                        <th>Total</th>
+                                        <th>Build</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>Tents</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="#" class="btn btn-success">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                <span class="sr-only">Build</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Wooden huts</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="#" class="btn btn-success">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                <span class="sr-only">Build</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>Stone houses</td>
+                                        <td></td>
+                                        <td>
+                                            <a href="#" class="btn btn-success">
+                                                <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                                                <span class="sr-only">Build</span>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="page-header">
+                <h1>for later</h1>
+            </div>
+        </div>
+    </body>
+</html>
