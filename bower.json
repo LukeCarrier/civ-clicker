@@ -1,0 +1,10 @@
+{
+  "name": "civclicker",
+  "version": "0.1.0",
+  "authors": [
+    "Luke Carrier <luke@carrier.im>"
+  ],
+  "description": "A civilisation simulator",
+  "main": "index.html",
+  "license": "MIT"
+}

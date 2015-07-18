@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/LukeCarrier/civ-clicker/issues"
   },
-  "homepage": "https://github.com/LukeCarrier/civ-clicker"
+  "homepage": "https://github.com/LukeCarrier/civ-clicker",
+  "devDependencies": {
+    "bower": "^1.4.1"
+  }
 }
