@@ -6,5 +6,8 @@
   ],
   "description": "A civilisation simulator",
   "main": "index.html",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "bootstrap": "~3.3.5"
+  }
 }
