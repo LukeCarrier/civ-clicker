@@ -120,6 +120,7 @@
         var save = new Save(),
             game = new Game(save);
 
+        $("[data-toggle='tooltip']").tooltip();
 
         //save.import();
 
