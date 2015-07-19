@@ -37,11 +37,11 @@
      */
     Game.prototype.handleActionClick = function(e) {
         var $actionButton = $(e.currentTarget),
-            action        = $actionButton.data('civclicker-action');
+            action        = $actionButton.data("civclicker-action");
 
         switch (action) {
             case "gather":
-                var resource = $actionButton.data('civclicker-resource');
+                var resource = $actionButton.data("civclicker-resource");
                 this.gatherResource(resource);
                 break;
 
@@ -82,6 +82,17 @@
     };
 
     /**
+     * Update all properties.
+     *
+     * @return {Void}
+     */
+    Game.prototype.updateAllProperties = function() {
+        $.each(this.save.resources, $.proxy(function(resource, count) {
+            this.updateProperty("resource-" + resource, count);
+        }, this));
+    };
+
+    /**
      * Saved game state.
      *
      * @constructor
@@ -99,12 +110,37 @@
     };
 
     /**
+     * Automatic save frequency in milliseconds.
+     *
+     * @type {Number}
+     */
+    Save.AUTOSAVE_EVERY = 60000;
+
+    /**
+     * Cookie name.
+     *
+     * @type {String}
+     */
+    Save.COOKIE_NAME = "civclicker-save";
+
+    /**
      * Import an existing save.
      *
      * @param  {String} string JSON string representing save file.
      * @return {Void}
      */
     Save.prototype.import = function(string) {
+        var save = JSON.parse(string);
+
+        this.population = save.population;
+        this.sick       = save.sick;
+
+        this.resources = {
+            "food":  save.resources["food"],
+            "stone": save.resources["stone"],
+            "water": save.resources["water"],
+            "wood":  save.resources["wood"]
+        };
     };
 
     /**
@@ -113,7 +149,25 @@
      * @return {String} JSON string representing save file.
      */
     Save.prototype.export = function() {
-        return "";
+        return JSON.stringify(this);
+    };
+
+    /**
+     * Load the game from a cookie.
+     *
+     * @return {Void}
+     */
+    Save.prototype.fromCookie = function() {
+        this.import($.cookie(Save.COOKIE_NAME));
+    };
+
+    /**
+     * Save the game to a cookie.
+     *
+     * @return {Void}
+     */
+    Save.prototype.toCookie = function() {
+        $.cookie(Save.COOKIE_NAME, this.export());
     };
 
     $(function() {
@@ -122,9 +176,12 @@
 
         $("[data-toggle='tooltip']").tooltip();
 
-        //save.import();
+        // Import the existing save, and set up automatic saves
+        save.fromCookie();
+        setTimeout($.proxy(save.toCookie, save), Save.AUTOSAVE_EVERY);
 
         $("[data-civclicker-action]").click($.proxy(game.handleActionClick, game));
+        game.updateAllProperties();
         game.tick();
     });
 })(jQuery);
